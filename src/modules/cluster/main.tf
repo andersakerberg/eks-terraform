@@ -8,10 +8,10 @@ module "eks" {
   worker_groups_launch_template = [
     {
       name                    = "spot-1"
-      override_instance_types = ["t2.micro"]
-      spot_instance_pools     = 4
-      asg_max_size            = 5
-      asg_desired_capacity    = 5
+      override_instance_types = ["m5.large", "m5d.large"]
+      spot_instance_pools     = 1
+      asg_max_size            = 1
+      asg_desired_capacity    = 1
       kubelet_extra_args      = "--node-labels=node.kubernetes.io/lifecycle=spot"
       public_ip               = true
     },
